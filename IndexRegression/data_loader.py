@@ -4,7 +4,6 @@ import pandas as pd
 import yfinance as yf
 from pymongo import MongoClient
 import logging
-import datetime
 
 INDEX_TICKERS = ['^GSPC','^RUT','^NDX']
 
@@ -52,7 +51,7 @@ class DataDownloader:
     def delete_values(self, start_date=None):
         filter_condition = {}
         if start_date:
-            filter_condition['Date'] = {'$gte': datetime.datetime(2023,1,3)}
+            filter_condition['Date'] = {'$gte': start_date}
         logging.info(str(filter_condition))
         self.Mongo.coll.delete_many(filter_condition)
 
