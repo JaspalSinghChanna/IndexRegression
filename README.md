@@ -9,7 +9,7 @@ I also have created a function which includes all indices available in the regre
 This tool requires MongoDB to be set-up locally.
 The community edition can be installed on Windows by following the instructions here: https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/#install-mongodb-community-edition
 
-This tool also has dependencies on other python libraries defined in the requirements.txt file. Please ensure these are installed before running.
+This tool also has dependencies on other python libraries defined in the requirements.txt file and has been tested on python 3.9. Please ensure these are installed before running.
 
 Once you have installed the relevant dependencies, you can run the data_loader.py file to download data into a local MongoDB.
 This will delete any existing data in the collection and download full history.
