@@ -13,6 +13,14 @@ a = Analytics()
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.SOLAR])
 server = app.server
+
+load_out = dcc.Loading(
+        id="loading-output",
+        type="default",  # You can use "circle", "dot", "default", "cube", "circle-outside", or "circle-top"
+        children=dcc.Graph(figure={}, id='scatter-graph') # Your slow-loading component goes here
+    )
+
+
 app.layout = dbc.Container([
     dbc.Row(html.H1("Multi-Variate Index Regression"), className='text-center'),
     dbc.Row(html.H6("This tool allows a user to see how much of the variance (daily returns) of a selected index can be explained by a basket of securities. Daily returns are calculated using end-of-day close prices.")),
@@ -69,7 +77,7 @@ app.layout = dbc.Container([
     ]),
     dbc.Row([
         dbc.Col(
-            dcc.Graph(figure={}, id='scatter-graph'),
+            load_out,
         )
     ], className="p-4"),
     dbc.Row([
