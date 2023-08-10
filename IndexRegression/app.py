@@ -12,7 +12,7 @@ import logging
 a = Analytics()
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.SOLAR])
-serevr = app.server
+server = app.server
 app.layout = dbc.Container([
     dbc.Row(html.H1("Multi-Variate Index Regression"), className='text-center'),
     dbc.Row(html.H6("This tool allows a user to see how much of the variance (daily returns) of a selected index can be explained by a basket of securities. Daily returns are calculated using end-of-day close prices.")),
