@@ -139,6 +139,7 @@ def update_graph(sec_value, index_value, start_date, end_date, agg_value):
         if end_date:
             ed_dt = datetime.datetime.strptime(end_date, '%Y-%m-%d')
             df = df.loc[df['Date'] <= ed_dt]
+        df.sort_values(by='Date', inplace=True)
         sc1 = px.scatter(x=df['Date'],y=df['Predictions'],
                          title="Returns Over Time", 
                          labels={'x': 'Time', 'y':'(Average) Daily Return (%)'})
